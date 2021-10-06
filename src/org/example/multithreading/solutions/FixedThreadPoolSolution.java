@@ -9,10 +9,10 @@ public class FixedThreadPoolSolution extends AbstractSolution{
     @Override
     public void solve() throws InterruptedException {
 
-        ExecutorService executor = Executors.newSingleThreadExecutor();
+        ExecutorService executor = Executors.newFixedThreadPool(2);
         for (Runnable task : tasks) {
             executor.submit(task);
-            Thread.sleep(MAGIC_WAITING_NUMBER);
+//            Thread.sleep(MAGIC_WAITING_NUMBER);
         }
         executor.shutdown();
     }
